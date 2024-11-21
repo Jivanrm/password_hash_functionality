@@ -1,0 +1,10 @@
+Flask==2.3.2  # Core web framework
+Flask-WTF==1.1.1  # Secure form handling
+WTForms==3.0.1  # Form validation
+Flask-Bcrypt==1.0.1  # For server-side password hashing
+Flask-SQLAlchemy==3.0.5  # Database ORM
+Flask-Migrate==4.0.4  # Database migrations
+Jinja2==3.1.2  # Templating engine
+gunicorn==21.1.0  # WSGI HTTP server for deployment
+requests==2.31.0  # HTTP requests (if needed for API integrations)
+itsdangerous==2.1.2  # Secure data signing
