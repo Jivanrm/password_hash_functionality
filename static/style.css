@@ -1,0 +1,193 @@
+/* --- General Reset --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* --- Body Styling --- */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #2d3436, #230a16); /* Gradient background */
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full viewport height */
+    margin: 0;
+    overflow: hidden; /* Prevent scrollbars */
+}
+
+/* --- Main Container Styling --- */
+.container {
+    background: rgba(255, 255, 255, 0.15); /* Transparent white with blur effect */
+    backdrop-filter: blur(10px); /* Adds a frosted glass effect */
+    padding: 2.5rem;
+    border-radius: 12px; /* Rounded corners */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Soft shadow */
+    text-align: center;
+    width: 100%;
+    max-width: 400px; /* Responsive width limit */
+    animation: fadeIn 1.2s ease-in-out; /* Entry animation */
+}
+
+/* --- Fade-in Animation --- */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px); /* Starts slightly below */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0); /* Ends at normal position */
+    }
+}
+
+/* --- Heading Styling --- */
+h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: #f1f1f1;
+    letter-spacing: 1px;
+    text-transform: uppercase; /* All caps */
+    position: relative;
+}
+
+h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: #ff7675; /* Decorative underline */
+    margin: 0.5rem auto 0;
+    border-radius: 10px; /* Rounded underline edges */
+}
+
+/* --- Form Styling --- */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem; /* Consistent spacing between elements */
+}
+
+/* --- Input Fields --- */
+input {
+    padding: 1rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    width: 100%;
+    color: #333;
+    background: rgba(255, 255, 255, 0.8); /* Light background */
+    outline: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Interactive feedback */
+}
+
+input:focus {
+    transform: scale(1.05); /* Slight zoom on focus */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Enhanced shadow */
+}
+
+/* --- Button Styling --- */
+button {
+    padding: 0.8rem 1rem;
+    background: linear-gradient(135deg, #fd79a8, #ff7675); /* Vibrant gradient */
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Elevated button */
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+    background: linear-gradient(135deg, #fab1a0, #ff7675); /* Lighter hover gradient */
+    transform: translateY(-2px); /* Subtle lift */
+}
+
+/* --- Paragraph Styling --- */
+p {
+    margin-top: 1.5rem;
+    color: #f1f1f1;
+    font-size: 0.9rem;
+}
+
+/* --- Link Styling --- */
+a {
+    color: #ffa9a9;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #cc7777; /* Bright hover effect */
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 500px) {
+    .container {
+        padding: 2rem; /* Adjust padding for small screens */
+    }
+
+    h2 {
+        font-size: 1.8rem; /* Slightly smaller heading */
+    }
+
+    button {
+        font-size: 1rem;
+    }
+}
+
+/* --- Logout Button Styling --- */
+.logout-button {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    background: #ab0a0a;
+    color: #fff3f3;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    transition: background 0.3s ease, transform 0.3s ease;
+    margin-top: 1.5rem;
+}
+
+.logout-button:hover {
+    transform: translateY(-2px);
+}
+
+/* --- Flash Messages --- */
+.flashes {
+    list-style: none;
+    padding: 0;
+    animation: fadeIn 0.8s ease-in-out; /* Appears smoothly */
+    margin-bottom: 1rem;
+}
+
+.flashes li {
+    padding: 0.8rem 1rem;
+    border-radius: 8px;
+    margin-bottom: 0.8rem;
+    font-size: 0.9rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: opacity 0.5s ease; /* Smooth fade-out */
+}
+
+/* --- Flash Types --- */
+.flashes .success {
+    background: linear-gradient(135deg, #55efc4, #81ecec); /* Green success */
+    color: #2d3436;
+}
+
+.flashes .danger {
+    background: linear-gradient(135deg, #fab1a0, #ff7675); /* Red danger */
+    color: #2d3436;
+}

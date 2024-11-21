@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Character encoding for proper text display -->
+    <meta charset="UTF-8">
+    <!-- Responsive design: adjust the page based on device width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <!-- Link to external stylesheet for design -->
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Display any flashed messages (like success or error) -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+        <ul class="flashes" id="flash-messages">
+            {% for category, message in messages %}
+            <!-- Each message will be styled based on its category (e.g., success, error) -->
+            <li class="{{ category }}">{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
+
+        <h2>Sign Up</h2>
+        <!-- Sign-up form to collect user information -->
+        <form action="/signup" method="POST">
+            <!-- Input field for username with a placeholder and required validation -->
+            <input type="text" name="username" placeholder="Choose a Username" required>
+            <!-- Input field for password with a placeholder and required validation -->
+            <input type="password" name="password" placeholder="Choose a Password" required>
+            <!-- Submit button to send the form data -->
+            <button type="submit">Sign Up</button>
+        </form>
+
+        <!-- Link to log in if the user already has an account -->
+        <p>Already have an account? <a href="/login">Log In</a></p>
+    </div>
+
+    <script>
+        // Set a timeout to auto-hide flash messages after 3 seconds
+        setTimeout(() => {
+            const flashMessages = document.getElementById('flash-messages');
+            
+            if (flashMessages) {
+                // Apply fade-out effect for the flash messages
+                flashMessages.style.transition = "opacity 0.5s ease";
+                flashMessages.style.opacity = "0";
+
+                // Remove the flash messages completely after the fade-out
+                setTimeout(() => flashMessages.remove(), 500);
+            }
+        }, 3000);
+    </script>
+</body>
+
+</html>
